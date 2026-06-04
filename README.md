@@ -1,84 +1,93 @@
 # GAMERemotePack
 
-GAMERemotePack is a Windows setup helper for playing or checking a PC game from an Android tablet while away from the PC.
+GAMERemotePack は、自宅のWindows PCで動いているゲーム画面を、Androidタブレットから見たり操作したりするためのセットアップ補助ツールです。
 
-It is made for a simple idea: keep the main game running on the home PC, then use an Android tablet to check the screen, chat, craft, gather, manage small tasks, or play lightly from bed or outside the house.
+ベッドで横になりながらチャットを見たり、軽いクラフター作業や採集のような繰り返し操作をしたり、外出先からゲーム画面を確認したい時に使うことを想定しています。
 
-Although it was tested with an MMO-style game workflow, the setup is not limited to one title. If a PC game can be streamed through Sunshine and controlled through Moonlight, the same idea can be used.
+特定のゲーム専用ではありません。Sunshine と Moonlight で画面転送・操作できるPCゲームなら、同じ考え方で使えます。
 
-## What This Tool Helps With
+## このツールでできること
 
-- Guides the PC setup for Tailscale and Sunshine
-- Opens the Sunshine setup screen in an embedded browser
-- Guides Android setup for Tailscale and Moonlight
-- Creates connection notes for the Android device
-- Checks whether Android can see the streamed screen
-- Provides input troubleshooting for mouse, tap, keyboard, and controller use
-- Includes a keyboard compatibility fix for Sunshine settings
-- Explains recommended Moonlight quality settings for home and away use
+- PC側の Tailscale / Sunshine 導入を補助
+- Sunshine の設定画面を内蔵ブラウザーで開く
+- Android側に入れる Tailscale / Moonlight を案内
+- Androidに入力する接続情報を作成
+- Android側にゲーム画面が出ているか接続テスト
+- マウス、タップ、キーボード、コントローラーの入力トラブル案内
+- Sunshineのキーボード互換設定を修復
+- 外出先向けの画質設定を案内
 
-## Download
+## ダウンロード
 
-Download the latest ZIP from GitHub Releases, extract it, and run:
+最新版は Releases からZIPをダウンロードしてください。
+
+ZIPを展開して、次のEXEを起動します。
 
 `BlackAshRemoteSetup.exe`
 
 Releases:
 https://github.com/mitaka0715-bot/GAMERemotePack/releases
 
-## Typical Use
+## 基本の使い方
 
-1. Keep the home PC powered on.
-2. Start the game on the PC.
-3. Start Tailscale and Sunshine on the PC.
-4. Open Moonlight on Android.
-5. Connect to the PC and operate the game screen from Android.
+1. 自宅PCの電源を入れておく
+2. 自宅PCでゲームを起動しておく
+3. 自宅PCで Tailscale と Sunshine を起動しておく
+4. Androidで Moonlight を開く
+5. 自宅PCへ接続して、Androidからゲーム画面を操作する
 
-For stable remote use, set Windows sleep to `Never`. Turning the monitor off is usually fine, but PC sleep or hibernation will stop the connection.
+外出先や入院中に使う場合、PCがスリープすると接続できません。Windowsの電源設定でスリープを「なし」にしてください。
 
-## Bed / Hospital / Away-From-PC Use
+モニターの電源OFFは基本的に大丈夫ですが、PC本体のスリープや休止状態はNGです。
 
-This pack is useful for light actions where ultra-low-latency play is not required:
+## こんな使い方に向いています
 
-- Checking the game screen
-- Reading chat
-- Sending short chat messages
-- Crafting-style repeated tasks
-- Gathering-style repeated tasks
-- Inventory or menu checks
-- Controller-based light play
+- ゲーム画面の確認
+- チャットの確認
+- 短いチャット返信
+- クラフター系の軽い作業
+- 採集系の軽い作業
+- メニューや所持品の確認
+- Bluetoothコントローラーでの軽い操作
 
-For serious real-time combat or timing-heavy play, the experience depends heavily on the network connection.
+タイミングがシビアな戦闘やアクション操作は、回線品質にかなり左右されます。
 
-## Recommended Moonlight Settings
+## 外出先向けのおすすめ画質
 
-Away from home:
+Android側の Moonlight 設定で変更します。
 
-- Resolution: 720p
-- Frame rate: 30 FPS
-- Bitrate: 5 to 10 Mbps
-- Codec: H.264 or HEVC
+外出先で安定優先:
 
-Home Wi-Fi or close-range testing:
+- 解像度: 720p
+- FPS: 30 FPS
+- ビットレート: 5〜10 Mbps
+- コーデック: H.264 または HEVC
 
-- Resolution: 1080p
-- Frame rate: 60 FPS
-- Bitrate: 20 to 40 Mbps
+自宅Wi-Fiや近距離テスト:
 
-## Keyboard and Controller Notes
+- 解像度: 1080p
+- FPS: 60 FPS
+- ビットレート: 20〜40 Mbps
 
-If tap and mouse work but keyboard input does not, check the Android keyboard first. USB keyboards can conflict with the Android device's PC/ADB connection mode. A Bluetooth keyboard is recommended.
+まずは軽い設定で接続して、余裕があれば上げるのがおすすめです。
 
-Bluetooth controllers can also work through Moonlight/Sunshine. Xbox-style controllers are usually the easiest. The game must be set to gamepad mode if required.
+## キーボードとコントローラー
 
-## Important Notes
+マウス操作やタップはできるのにキーボードだけ入力できない場合は、まずAndroid側のキーボード認識を確認してください。
 
-- This package does not include Tailscale, Sunshine, or Moonlight installers.
-- Users install those apps from their official sources.
-- Do not open game streaming ports directly to the internet. Use a private VPN-style connection such as Tailscale.
-- Account login, Sunshine password creation, and Moonlight pairing must be done by the user.
-- No personal tokens, API keys, account credentials, or private IDs are included in this repository.
+USBキーボードは、AndroidのUSB接続モードと食い合う場合があります。初期設定や接続テスト時は、AndroidをPCへ直接USB接続し、キーボードはBluetoothを使うのがおすすめです。
 
-## Not Affiliated
+Bluetoothコントローラーも使える可能性があります。Xbox系コントローラーが比較的安定しやすいです。ゲーム側でゲームパッドモードやボタン設定が必要な場合があります。
 
-This project is an independent setup helper. It is not affiliated with any game publisher, Tailscale, Sunshine, or Moonlight.
+## 注意事項
+
+- このZIPには Tailscale / Sunshine / Moonlight 本体は同梱していません。
+- それぞれ公式配布元、winget、Play Store から導入します。
+- ゲーム操作用のポートをインターネットへ直接開放しないでください。
+- 外出先接続は Tailscale のような安全な接続方式を使ってください。
+- Tailscaleログイン、Sunshine初回パスワード作成、Moonlightペアリングは本人が行う必要があります。
+- トークン、APIキー、個人アカウント情報、認証情報は含めていません。
+
+## 関係について
+
+このツールは個人制作のセットアップ補助ツールです。各ゲーム会社、Tailscale、Sunshine、Moonlightとは関係ありません。
